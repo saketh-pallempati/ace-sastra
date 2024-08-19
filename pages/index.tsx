@@ -1,59 +1,63 @@
-import { InferGetStaticPropsType } from 'next';
 import Head from 'next/head';
 import styled from 'styled-components';
 import BasicSection from 'components/BasicSection';
-import Link from 'components/Link';
+import SwiperCards from 'components/SwiperCards.jsx';
 import { EnvVars } from 'env';
-import { getAllPosts } from 'utils/postsFetcher';
 import Cta from 'views/HomePage/Cta';
 import Features from 'views/HomePage/Features';
 import FeaturesGallery from 'views/HomePage/FeaturesGallery';
 import Hero from 'views/HomePage/Hero';
-import Partners from 'views/HomePage/Partners';
-import ScrollableBlogPosts from 'views/HomePage/ScrollableBlogPosts';
 import Testimonials from 'views/HomePage/Testimonials';
-
-export default function Homepage({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
+import FaqSection from 'views/PricingPage/FaqSection';
+export default function Homepage() {
   return (
     <>
       <Head>
         <title>{EnvVars.SITE_NAME}</title>
         <meta
           name="description"
-          content="Tempor nostrud velit fugiat nostrud duis incididunt Lorem deserunt est tempor aute dolor ad elit."
+          content="The Association of Computing Engineers (ACE) is the official club of the School of Computing at SASTRA Deemed University. Established with the aim of promoting excellence in computing education and research, ACE organizes a wide range of events, hackathons, webinars, and workshops throughout the academic year"
         />
       </Head>
       <HomepageWrapper>
         <WhiteBackgroundContainer>
           <Hero />
-          <Partners />
-          <BasicSection imageUrl="/demo-illustration-1.svg" title="Lorem ipsum dolor sit amet consectetur." overTitle="sit amet gogo">
+          <BasicSection imageUrl="/demo-illustration-1.svg" title="Code - Build - Progress" overTitle="About Us">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, quidem error incidunt a doloremque voluptatem porro inventore
-              voluptate quo deleniti animi laboriosam.{' '}
-              <Link href="/help-center">Possimus ullam velit rem itaque consectetur, in distinctio?</Link> Lorem ipsum, dolor sit amet
-              consectetur adipisicing elit. Soluta repellendus quia quos obcaecati nihil. Laudantium non accusantium, voluptate eum nesciunt
-              at suscipit quis est soluta?
+              Driven by the principles of innovation, excellence, collaboration, education, and community, ACE provides students with
+              opportunities to enhance their technical skills, explore emerging technologies, and connect with industry professionals. ACE
+              welcomes all students with a passion for computing to join us in our journey of learning, innovation, and growth. Come be a
+              part of our vibrant community and unleash your potential in the exciting world of computing!
             </p>
           </BasicSection>
-          <BasicSection imageUrl="/demo-illustration-2.svg" title="Lorem ipsum dolor sit." overTitle="lorem ipsum" reversed>
+          <BasicSection imageUrl="/demo-illustration-2.svg" title="Mission of ACE " overTitle=" Here's what we're all about" reversed>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, quidem error incidunt a doloremque voluptatem porro inventore{' '}
-              <strong>voluptate quo deleniti animi laboriosam</strong>. Possimus ullam velit rem itaque consectetur, in distinctio?
+              At ACE, our mission is to create an exciting and collaborative environment within the School of Computing. We want to help
+              students thrive in the world of computing through <strong> events, hackathons, webinars, and more... </strong>
             </p>
             <ul>
-              <li>Professional point 1</li>
-              <li>Professional remark 2</li>
-              <li>Professional feature 3</li>
+              <li>Inspiring Innovation</li>
+              <li>Supporting Collabration</li>
+              <li>Encouraging Excellence</li>
+              <li>Research Advancement</li>
             </ul>
           </BasicSection>
         </WhiteBackgroundContainer>
         <DarkerBackgroundContainer>
           <Cta />
           <FeaturesGallery />
-          <Features />
-          <Testimonials />
-          <ScrollableBlogPosts posts={posts} />
+          <SwiperCards />
+          <div id="clusters">
+            <Features />
+          </div>
+          <div id="events">
+            <Testimonials />
+          </div>
+
+          <div id="faq-section">
+            <FaqSection />
+          </div>
+
         </DarkerBackgroundContainer>
       </HomepageWrapper>
     </>
@@ -86,10 +90,3 @@ const WhiteBackgroundContainer = styled.div`
   }
 `;
 
-export async function getStaticProps() {
-  return {
-    props: {
-      posts: await getAllPosts(),
-    },
-  };
-}

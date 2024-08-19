@@ -5,22 +5,19 @@ import ButtonGroup from 'components/ButtonGroup';
 import Container from 'components/Container';
 import HeroIllustration from 'components/HeroIllustation';
 import OverTitle from 'components/OverTitle';
-import { useNewsletterModalContext } from 'contexts/newsletter-modal.context';
 import { media } from 'utils/media';
 
 export default function Hero() {
-  const { setIsModalOpened } = useNewsletterModalContext();
 
   return (
     <HeroWrapper>
       <Contents>
-        <CustomOverTitle>the coolest, saas product you have ever seen</CustomOverTitle>
-        <Heading>Make your life easier with our SaaS</Heading>
+        <CustomOverTitle>the official club of the School of Computing</CustomOverTitle>
+        <Heading>Association of Computing Engineers</Heading>
         <Description>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, tempora qui. Explicabo voluptate iure ipsum molestias
-          repudiandae perspiciatis nostrum praesentium, unde pariatur tempora magni rem. Necessitatibus facilis obcaecati ratione.
+         Established with the aim of promoting excellence in computing education and research, ACE organizes a wide range of events, hackathons, webinars, and workshops throughout the academic year.
         </Description>
-        <CustomButtonGroup>
+        {/* <CustomButtonGroup>
           <Button onClick={() => setIsModalOpened(true)}>
             Subscribe to the newsletter <span>&rarr;</span>
           </Button>
@@ -29,7 +26,7 @@ export default function Hero() {
               Features <span>&rarr;</span>
             </Button>
           </NextLink>
-        </CustomButtonGroup>
+        </CustomButtonGroup> */}
       </Contents>
       <ImageContainer>
         <HeroIllustration />

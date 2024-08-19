@@ -71,16 +71,18 @@ export default function FormSection() {
             {...register('description', { required: true })}
           />
         </InputStack>
-        <Button as="button" type="submit" disabled={isSubmitDisabled}>
-          Send Message
-        </Button>
+        <ButtonWrapper>
+          <Button as="button" type="submit" disabled={isSubmitDisabled}>
+            Send Message
+          </Button>
+        </ButtonWrapper>
       </Form>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
-  flex: 2;
+  flex: 2.2;
 `;
 
 const Form = styled.form`
@@ -127,4 +129,9 @@ const ErrorMessage = styled.p`
 const Textarea = styled(Input)`
   width: 100%;
   min-height: 20rem;
+`;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
 `;

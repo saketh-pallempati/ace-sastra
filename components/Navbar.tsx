@@ -3,14 +3,11 @@ import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
-import { useNewsletterModalContext } from 'contexts/newsletter-modal.context';
 import { ScrollPositionEffectProps, useScrollPosition } from 'hooks/useScrollPosition';
 import { NavItems, SingleNavItem } from 'types';
 import { media } from 'utils/media';
 import Button from './Button';
 import Container from './Container';
-import Drawer from './Drawer';
-import { HamburgerIcon } from './HamburgerIcon';
 import Logo from './Logo';
 
 const ColorSwitcher = dynamic(() => import('../components/ColorSwitcher'), { ssr: false });
@@ -21,7 +18,6 @@ type NavbarContainerProps = { hidden: boolean; transparent: boolean };
 
 export default function Navbar({ items }: NavbarProps) {
   const router = useRouter();
-  const { toggle } = Drawer.useDrawer();
   const [scrollingDirection, setScrollingDirection] = useState<ScrollingDirections>('none');
 
   let lastScrollY = useRef(0);
@@ -80,24 +76,12 @@ export default function Navbar({ items }: NavbarProps) {
         <ColorSwitcherContainer>
           <ColorSwitcher />
         </ColorSwitcherContainer>
-        <HamburgerMenuWrapper>
-          <HamburgerIcon aria-label="Toggle menu" onClick={toggle} />
-        </HamburgerMenuWrapper>
       </Content>
     </NavbarContainer>
   );
 }
 
 function NavItem({ href, title, outlined }: SingleNavItem) {
-  const { setIsModalOpened } = useNewsletterModalContext();
-
-  function showNewsletterModal() {
-    setIsModalOpened(true);
-  }
-
-  if (outlined) {
-    return <CustomButton onClick={showNewsletterModal}>{title}</CustomButton>;
-  }
 
   return (
     <NavItemWrapper outlined={outlined}>
@@ -122,11 +106,6 @@ const NavItemList = styled.div`
   }
 `;
 
-const HamburgerMenuWrapper = styled.div`
-  ${media('>=desktop')} {
-    display: none;
-  }
-`;
 
 const LogoWrapper = styled.a`
   display: flex;

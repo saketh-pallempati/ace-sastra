@@ -1,4 +1,4 @@
-import NextImage from 'next/image';
+import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -10,31 +10,68 @@ import { media } from 'utils/media';
 
 const TESTIMONIALS = [
   {
-    companyLogoUrl: '/testimonials/company-logo-1.svg',
-    content: `Really good. I am so pleased with this product. I didn't even need training.`,
+    name: 'CodeRush ‘24',
+    content: `CodeRush ‘24, a coding contest organized in partnership with AZAC, engaged students in rigorous coding challenges across multiple rounds. With 450 registrations for the online round and 65 participants in the final offline round, CodeRush ‘24 provided a platform for students to showcase their coding skills and problem-solving abilities, fostering a spirit of competition and camaraderie within the student community.`,
     author: {
-      name: 'Clyde Edwards',
-      title: 'Very Serious Man',
-      avatarUrl: '/testimonials/author-photo-1.jpeg',
+      date: '24 March, 2024 (Round - 1), 28 March, 2024 (Final Round)',
+      venue: 'Hackerank (Round – 1), LTC 204 and LTC 206 (Final Round)',
     },
+    imageURL: '/Events/coderush.jpg',
+  },
+
+  {
+    name: 'LINUX Intern Launchpad',
+    content: `In collaboration with Electromech Corporation, ACE organized the Linux Internship Qualifying Test to offer summer internship opportunities for 3rd-year students. The test, focusing on Computer Networks and Operating Systems, saw active participation from 128 students out of 168 registrations. This initiative aimed to bridge the gap between academia and industry by providing practical experience in a real-world setting.`,
+    author: {
+      date: '19 February, 2024 (3:30 p.m. - 5:15 p.m.)',
+      venue: 'TIFAC Core, SoC Lab',
+    },
+    imageURL: '/Events/Linux Intern Launchpad.jpg',
   },
   {
-    companyLogoUrl: '/testimonials/company-logo-2.svg',
-    content: `It's really wonderful. I use saas product often. Thank You! Saas product has really helped our business.`,
+    name: 'Study Summit Workshop',
+    content: `Ms. Victoria McEniery, Senior Regional Market Manager of University of Otago, conducted a workshop highlighting academic opportunities abroad. With a focus on the Semester Abroad Program, Ms. McEniery showcased the benefits of studying at a top-ranked university in New Zealand, fostering international collaboration and cultural exchange among students.`,
     author: {
-      name: 'Jimmy Hunter',
-      title: 'Sigma Male University Graduate',
-      avatarUrl: '/testimonials/author-photo-2.jpeg',
+      date: '22 February, 2024 (9:00 a.m. - 10:30 a.m.)',
+      venue: 'LTC 201',
     },
+    imageURL: '/Events/NZ.jpg',
   },
   {
-    companyLogoUrl: '/testimonials/company-logo-3.svg',
-    content: `Since I invested in saas product I made over 100,000 dollars profits. It really saves me time and effort. saas product is exactly what our business has been lacking.`,
+    name: 'Quality Control Using MiniTab Workshop',
+    content: `Dr. B. Thamodharan and Dr. A.L. Sriram led a workshop on Quality Control using MiniTab tools, aimed at empowering MCA 2nd-year students with practical strategies for organizational effectiveness. With 116 enthusiastic participants, the workshop focused on real-world applications of quality management techniques, equipping students with essential skills for their professional journey.`,
     author: {
-      name: 'Marjorie Morgan',
-      title: 'Chief Chad Officer',
-      avatarUrl: '/testimonials/author-photo-3.jpeg',
+      date: '6 March, 2024 (Session 1: 11:00 a.m. - 12:30 p.m., Session 2: 1:30 p.m. - 4 p.m.)',
+      venue: 'LTC 201',
     },
+    imageURL: '/Events/minitab.jpg',
+  },
+  {
+    name: 'Know Your Professor',
+    content: `The "Know Your Professor" event provided students with insights into the research domains of SoC faculty members. Through presentations by esteemed professors, students gained exposure to diverse research areas and potential collaboration opportunities. This interactive platform facilitated meaningful connections between students and faculty, fostering a culture of research and innovation within the department.`,
+    author: {
+      date: '6 March, 2024 (3:15 P.M. – 5:15 P.M.)',
+      venue: 'LTC 101',
+    },
+    imageURL: '/Events/kyp.jpg',
+  },
+  {
+    name: 'Linux Security – Tech Talk Series - Ep. 1',
+    content: `Mr. Nilesh Vaghela, CEO of Electromech Cloud Pvt. Ltd., inaugurated the Tech Talk series with a deep dive into Linux Security. Covering fundamental Linux concepts and advanced security strategies, Mr. Vaghela engaged over 120 students from the School of Computing. His expertise in enterprise-level solutions and open-source technologies provided invaluable insights into securing Linux systems effectively.`,
+    author: {
+      date: '26 January, 2024 (6 p.m. - 7 p.m.)',
+      venue: 'Online',
+    },
+    imageURL: '/Events/online-1.jpg',
+  },
+  {
+    name: 'Demystifying LLM – Tech Talk Series – Ep. 2',
+    content: `Dr. Guru S. Anand, Executive Director of Innovation at Mizuho Bank, Singapore, delved into the intricacies of Large Language Models (LLM) in the second episode of the Tech Talk series. With expertise in AI, ML, and Fintech, Dr. Anand provided valuable insights into the applications and implications of LLM, sparking discussions on cutting-edge technological advancements in the field.`,
+    author: {
+      date: '22 March, 2024 (9:00 a.m. - 10:30 a.m.)',
+      venue: 'Online',
+    },
+    imageURL: '/Events/online-2.jpg',
   },
 ];
 
@@ -47,20 +84,15 @@ export default function Testimonials() {
           {TESTIMONIALS.map((singleTestimonial, idx) => (
             <SwiperSlide key={idx}>
               <TestimonialCard>
-                <NextImage
-                  src={singleTestimonial.companyLogoUrl}
-                  alt={`${singleTestimonial.author.name}'s company logo`}
-                  width={200}
-                  height={40}
-                />
+                <Title>{singleTestimonial.name}</Title>
+                <ImageContainer>
+                  <StyledImage src={singleTestimonial.imageURL} alt="Testimonials" layout="fill" objectFit="cover" />
+                </ImageContainer>
                 <Content>“{singleTestimonial.content}”</Content>
                 <AuthorContainer>
-                  <AuthorImageContainer>
-                    <NextImage src={singleTestimonial.author.avatarUrl} alt={singleTestimonial.author.name} width={48} height={48} />
-                  </AuthorImageContainer>
                   <AuthorContent>
-                    <AuthorName>{singleTestimonial.author.name}</AuthorName>
-                    <AuthorTitle>{singleTestimonial.author.title}</AuthorTitle>
+                    <AuthorName>{singleTestimonial.author.date}</AuthorName>
+                    <AuthorTitle>{singleTestimonial.author.venue}</AuthorTitle>
                   </AuthorContent>
                 </AuthorContainer>
               </TestimonialCard>
@@ -72,6 +104,21 @@ export default function Testimonials() {
     </div>
   );
 }
+
+const ImageContainer = styled.div`
+  position: relative;
+  width: 70%;
+  aspect-ratio: 16 / 9; /* Maintain 4:3 aspect ratio */
+  margin: 0 auto; /* Center the container */
+  overflow: hidden;
+`;
+
+const StyledImage = styled(Image)`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
 
 const TestimonialsWrapper = styled(Container)`
   position: relative;
@@ -106,10 +153,15 @@ const TestimonialCard = styled.div`
   }
 `;
 
+const Title = styled.h3`
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+`;
+
 const Content = styled.blockquote`
   text-align: center;
-  font-size: 2.2rem;
-  font-weight: bold;
+  font-size: 2rem;
   font-style: italic;
   max-width: 60%;
 
@@ -127,6 +179,7 @@ const AuthorContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   font-size: 1.4rem;
 `;
 
@@ -136,11 +189,4 @@ const AuthorTitle = styled.p`
 
 const AuthorName = styled.p`
   font-weight: normal;
-`;
-
-const AuthorImageContainer = styled.div`
-  display: flex;
-  border-radius: 10rem;
-  margin-right: 1rem;
-  overflow: hidden;
 `;
