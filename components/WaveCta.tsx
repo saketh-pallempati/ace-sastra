@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { media } from 'utils/media';
-import InformationSection from 'views/ContactPage/InformationSection';
 import FormSection from 'views/ContactPage/FormSection';
+import InformationSection from 'views/ContactPage/InformationSection';
 
 export default function WaveCta() {
   return (
