@@ -6,13 +6,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 const SwiperCards = () => {
   const [clusters, setClusters] = useState([
-    { name: 'Lead_Name', cluster: 'President' },
-    { name: 'Lead_Name', cluster: 'General secretary' },
-    { name: 'Lead_Name', cluster: 'Organizing secretary' },
-    { name: 'Lead_Name', cluster: 'Technical head' },
-    { name: 'Lead_Name', cluster: 'Non tech head' },
-    { name: 'Lead_Name', cluster: 'Public relations' },
-    { name: 'Lead_Name', cluster: 'Event coordinator' }
+    { name: 'Lead_Name', cluster: 'President', imageURL: '/Leads/author-photo-1.jpeg' },
+    { name: 'Lead_Name', cluster: 'General secretary', imageURL: '/Leads/author-photo-2.jpeg' },
+    { name: 'Lead_Name', cluster: 'Organizing secretary', imageURL: '/Leads/author-photo-3.jpeg' },
+    { name: 'Lead_Name', cluster: 'Technical head', imageURL: '/Leads/author-photo-1.jpeg' },
+    { name: 'Lead_Name', cluster: 'Non tech head', imageURL: '/Leads/author-photo-2.jpeg' },
+    { name: 'Lead_Name', cluster: 'Public relations', imageURL: '/Leads/author-photo-3.jpeg' },
+    { name: 'Lead_Name', cluster: 'Event coordinator', imageURL: '/Leads/author-photo-1.jpeg' }
   ]);
 
   return (
@@ -43,16 +43,8 @@ const SwiperCards = () => {
               spaceBetween: 20,
             },
             768: {
-              slidesPerView: 2,
+              slidesPerView: 3,
               spaceBetween: 15,
-            },
-            400: {
-            slidesPerView: 2,
-              spaceBetween: 10,
-            },
-            200: {
-              slidesPerView: 1,
-              spaceBetween: 10,
             },
           }}
           modules={[Autoplay, Navigation, EffectCoverflow]}
@@ -63,7 +55,7 @@ const SwiperCards = () => {
                 <Image
                   width="200"
                   height="200"
-                  src="/Leads/author-photo-3.jpeg"
+                  src={cluster.imageURL}
                   alt={cluster.name}
                 />
                 <TextContent>
@@ -73,7 +65,6 @@ const SwiperCards = () => {
               </Content>
             </SwiperSlide>
           ))}
-
         </Swiper>
       </Collection>
     </Container>
@@ -89,6 +80,15 @@ const Container = styled.div`
 const Lead = styled.h1`
   text-align: center;
   margin: 2rem;
+  font-size: 2rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const Collection = styled.section`
@@ -111,7 +111,7 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   height: 34rem;
   width: 25rem;
   background-color: rgb(var(--secondBackground));
@@ -120,12 +120,32 @@ const Content = styled.div`
   border-bottom: 0.4rem solid #0099ff;
   border-top: 0.4rem solid #0099ff;
   overflow: hidden;
-
+  padding: 1rem;
   img {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     margin-bottom: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    height: 28rem;
+    width: 20rem;
+
+    img {
+      width: 150px;
+      height: 150px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    height: 24rem;
+    width: 18rem;
+
+    img {
+      width: 120px;
+      height: 120px;
+    }
   }
 `;
 
@@ -138,6 +158,14 @@ const TextContent = styled.div`
   h3 {
     font-size: 1.7rem;
     font-weight: 500;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.2rem;
+    }
   }
 
   p {
@@ -145,5 +173,13 @@ const TextContent = styled.div`
     font-size: 0.8rem;
     font-weight: 400;
     text-align: center;
+
+    @media (max-width: 768px) {
+      font-size: 0.7rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 0.6rem;
+    }
   }
 `;

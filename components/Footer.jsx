@@ -3,21 +3,30 @@ import React from 'react';
 import styled from 'styled-components';
 
 const FooterContainer = styled.div`
-  padding: 2rem;
+  padding: 2rem 6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-top: 1px solid hsla(214.3, 31.8%, 91.4%, 0.4);
+  background-image: -webkit-linear-gradient(
+      hsla(217.2, 32.6%, 17.5%, 0.4),
+      hsla(217.2, 32.6%, 17.5%, 0.3),
+      hsla(217.2, 32.6%, 17.5%, 0.1)
+    );
+    backdrop-filter: blur(10px);
+
 
   .info {
     display: flex;
     flex-direction: column;
+  
+
 
     .copy {
       display: flex;
       align-items: center;
       gap: 4px;
-      font-size: 1rem;
+      font-size: 1.2rem;
       color: hsla(210, 40%, 98%, 0.8);
 
       svg {
@@ -26,7 +35,7 @@ const FooterContainer = styled.div`
       }
     }
     .design {
-      font-size: 0.8rem;
+      font-size: 1rem;
       letter-spacing: 1px;
       color: hsla(210, 40%, 98%, 0.8);
       .link {
@@ -81,50 +90,50 @@ const FooterContainer = styled.div`
 `;
 
 const Footer = () => {
-    return (
-        <FooterContainer>
-            <div className="info">
-                <p className="copy">
-                    Copyright
-                    <span><Copyright /></span>
-                    2024 ACE, Sastra.
-                </p>
-                <span className="design">
-                    Designed by &nbsp;
-                    <a
-                        href="https://github.com/saketh-pallempati"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="link"
-                    >
-                        ACE Web Team
-                    </a>
-                </span>
-            </div>
-            <div className="social">
-                <a
-                    href="https://github.com/saketh-pallempati"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Exampl"
-                >
-                    <Github />
-                </a>
-                <a href="#contact" aria-label="Find us on Twitter">
-                    <Twitter />
-                </a>
-                <a href="#contact" aria-label="Find us on Instagram">
-                    <Instagram />
-                </a>
-                <a href="#contact" aria-label="Find us on Facebook">
-                    <Facebook />
-                </a>
-                <a href="#contact" aria-label="Find us on LinkedIn">
-                    <Linkedin />
-                </a>
-            </div>
-        </FooterContainer>
-    );
+  return (
+    <FooterContainer>
+      <div className="info">
+        <p className="copy">
+          Copyright
+          <span><Copyright /></span>
+          2024 ACE, Sastra.
+        </p>
+        <span className="design">
+          Designed by &nbsp;
+          <a
+            href="https://github.com/saketh-pallempati"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link"
+          >
+            ACE Web Team
+          </a>
+        </span>
+      </div>
+      <div className="social">
+        <a
+          href="https://github.com/saketh-pallempati"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Exampl"
+        >
+          <Github />
+        </a>
+        <a href="#contact" aria-label="Find us on Twitter">
+          <Twitter />
+        </a>
+        <a href="#contact" aria-label="Find us on Instagram">
+          <Instagram />
+        </a>
+        <a href="#contact" aria-label="Find us on Facebook">
+          <Facebook />
+        </a>
+        <a href="#contact" aria-label="Find us on LinkedIn">
+          <Linkedin />
+        </a>
+      </div>
+    </FooterContainer>
+  );
 };
 
 export default Footer;

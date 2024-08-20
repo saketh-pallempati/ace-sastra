@@ -47,7 +47,8 @@ export default function MailSentState() {
 }
 
 const Wrapper = styled.div`
-  flex: 1;
+  margin-bottom: 5rem;
+  flex: 2;
 
   & > *:not(:first-child) {
     margin-top: 5rem;

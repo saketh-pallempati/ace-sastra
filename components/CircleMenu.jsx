@@ -29,6 +29,7 @@ const StyledNav = styled.nav`
     justify-content: center;
     flex-wrap: wrap;
     padding: 0;
+    cursor: pointer;
 
     li {
       margin: 20px;
@@ -62,12 +63,50 @@ const StyledNav = styled.nav`
       }
     }
   }
+
+  @media (max-width: 768px) {
+    .menuItems {
+      li {
+        margin: 15px;
+
+        a {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .menuItems {
+      flex-direction: column;
+      align-items: center;
+
+      li {
+        margin: 10px;
+
+        a {
+          font-size: 18px;
+        }
+      }
+    }
+  }
 `;
 
 const TextSection = styled.div`
-  margin-top: 20px;
-  font-size: 24px;
-  color: #333;
+
+`;
+
+const StyledBlockquote = styled.blockquote`
+  padding: 60px 40px 40px;
+  position: relative;
+  font-family: "Utopia-italic";
+  font-size: 25px;
+  font-weight: 700;
+  text-align: center;
+  color: rgb(100, 100, 100);
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInSlideDown 1s forwards;
 
   @media (max-width: 768px) {
     font-size: 20px;
@@ -76,15 +115,6 @@ const TextSection = styled.div`
   @media (max-width: 480px) {
     font-size: 16px;
   }
-`;
-
-const StyledBlockquote = styled.blockquote`
-  padding: 60px 80px 40px;
-  position: relative;
-  font-family: "Utopia-italic";
-  font-size: 25px;
-  font-weight: 700;
-  text-align: center;
 
   &::before {
     content: '';
@@ -108,38 +138,44 @@ const StyledBlockquote = styled.blockquote`
     height: 3px;
     width: 200px;
   }
+
+  @keyframes fadeInSlideDown {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 `;
-
 const CircleMenu = () => {
-    const [selectedItem, setSelectedItem] = useState('Innovation');
+  const [selectedItem, setSelectedItem] = useState('Innovation');
 
-    const handleItemClick = (item) => {
-        setSelectedItem(item);
-    };
+  const handleItemClick = (item) => {
+    setSelectedItem(item);
+  };
 
-    return (
-        <Gallery>
-            <StyledParagraph data-item="Principles">Principles</StyledParagraph>
-            <StyledNav>
-                <ul className="menuItems">
-                    <li><a data-item="Innovation" onClick={() => handleItemClick('Innovation')}>Innovation</a></li>
-                    <li><a data-item="Excellence" onClick={() => handleItemClick('Excellence')}>Excellence</a></li>
-                    <li><a data-item="Collaboration" onClick={() => handleItemClick('Collaboration')}>Collaboration</a></li>
-                    <li><a data-item="Education" onClick={() => handleItemClick('Education')}>Education</a></li>
-                    <li><a data-item="Community" onClick={() => handleItemClick('Community')}>Community</a></li>
-                </ul>
-            </StyledNav>
-            {selectedItem && (
-                <TextSection>
-                    {selectedItem === 'Innovation' && <StyledBlockquote>We believe in fostering a culture of innovation by encouraging creative thinking, problem-solving, and the exploration of new ideas in the field of computing.</StyledBlockquote>}
-                    {selectedItem === 'Excellence' && <StyledBlockquote>Our commitment to excellence drives us to strive for the highest standards of quality in all our endeavors, whether it&apos;s organizing events, hackathons, webinars, or any other activities.</StyledBlockquote>}
-                    {selectedItem === 'Collaboration' && <StyledBlockquote>We value collaboration and teamwork, recognizing that collective effort and diverse perspectives lead to greater success and innovation.</StyledBlockquote>}
-                    {selectedItem === 'Education' && <StyledBlockquote>ACE is dedicated to promoting continuous learning and skill development among its members, providing opportunities for growth and advancement in the ever-evolving field of computing.</StyledBlockquote>}
-                    {selectedItem === 'Community' && <StyledBlockquote>We are committed to building a strong and supportive community of computing enthusiasts, where members can connect, share knowledge, and inspire each other to achieve their goals.</StyledBlockquote>}
-                </TextSection>
-            )}
-        </Gallery>
-    );
+  return (
+    <Gallery>
+      <StyledParagraph data-item="Principles">Principles</StyledParagraph>
+      <StyledNav>
+        <ul className="menuItems">
+          <li><a data-item="Innovation" onClick={() => handleItemClick('Innovation')}>Innovation</a></li>
+          <li><a data-item="Excellence" onClick={() => handleItemClick('Excellence')}>Excellence</a></li>
+          <li><a data-item="Collaboration" onClick={() => handleItemClick('Collaboration')}>Collaboration</a></li>
+          <li><a data-item="Education" onClick={() => handleItemClick('Education')}>Education</a></li>
+          <li><a data-item="Community" onClick={() => handleItemClick('Community')}>Community</a></li>
+        </ul>
+      </StyledNav>
+      {selectedItem && (
+        <TextSection>
+          {selectedItem === 'Innovation' && <StyledBlockquote>We believe in fostering a culture of innovation by encouraging creative thinking, problem-solving, and the exploration of new ideas in the field of computing.</StyledBlockquote>}
+          {selectedItem === 'Excellence' && <StyledBlockquote>Our commitment to excellence drives us to strive for the highest standards of quality in all our endeavors, whether it&apos;s organizing events, hackathons, webinars, or any other activities.</StyledBlockquote>}
+          {selectedItem === 'Collaboration' && <StyledBlockquote>We value collaboration and teamwork, recognizing that collective effort and diverse perspectives lead to greater success and innovation.</StyledBlockquote>}
+          {selectedItem === 'Education' && <StyledBlockquote>ACE is dedicated to promoting continuous learning and skill development among its members, providing opportunities for growth and advancement in the ever-evolving field of computing.</StyledBlockquote>}
+          {selectedItem === 'Community' && <StyledBlockquote>We are committed to building a strong and supportive community of computing enthusiasts, where members can connect, share knowledge, and inspire each other to achieve their goals.</StyledBlockquote>}
+        </TextSection>
+      )}
+    </Gallery>
+  );
 };
 
 export default CircleMenu;

@@ -8,7 +8,7 @@ import Head from 'next/head';
 import { ColorModeScript } from 'nextjs-color-mode';
 import React from 'react';
 
-import Footer from 'components/Footertemp';
+import Footer from 'components/Footer';
 import { GlobalStyle } from 'components/GlobalStyles';
 import Navbar from 'components/Navbar';
 import WaveCta from 'components/WaveCta';

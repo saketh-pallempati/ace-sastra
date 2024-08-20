@@ -40,7 +40,7 @@ export default function Accordion({ title, isOpen, children }: PropsWithChildren
 const Title = styled.h3`
   font-size: 2rem;
   width: 90%;
-  overflow: hidden;
+  overflow: auto;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;

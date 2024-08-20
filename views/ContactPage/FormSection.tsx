@@ -119,6 +119,10 @@ const InputStack = styled.div`
   & > *:not(:first-child) {
     margin-top: 0.5rem;
   }
+  
+  & > *{
+    width: 100%;
+  }
 `;
 
 const ErrorMessage = styled.p`
