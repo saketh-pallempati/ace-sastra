@@ -25,7 +25,7 @@ export default function WaveCta() {
 
 const ContactContainer = styled.div`
   display: flex;
-  padding: 8rem;
+  padding: 4rem;
   padding-bottom: 0;
   ${media('<=tablet')} {
     flex-direction: column;
@@ -35,8 +35,4 @@ const ContactContainer = styled.div`
 const CtaWrapper = styled.div`
   background: rgb(var(--secondary));
   margin-top: -1rem;
-
-  ${media('<=tablet')} {
-    padding-top: 8rem;
-  }
 `;

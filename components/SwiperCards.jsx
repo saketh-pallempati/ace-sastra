@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Autoplay, EffectCoverflow, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import SectionTitle from 'components/SectionTitle';
 
 const SwiperCards = () => {
   const [clusters, setClusters] = useState([
@@ -17,8 +18,9 @@ const SwiperCards = () => {
 
   return (
     <Container>
-      <Lead>Meet Our Club Bearers</Lead>
+      <SectionTitle>Meet Our Club Bearers</SectionTitle>
       <Collection>
+
         <Swiper
           effect="coverflow"
           grabCursor={true}
@@ -75,20 +77,6 @@ export default SwiperCards;
 
 const Container = styled.div`
   @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,500&display=swap");
-`;
-
-const Lead = styled.h1`
-  text-align: center;
-  margin: 2rem;
-  font-size: 2rem;
-
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 1.2rem;
-  }
 `;
 
 const Collection = styled.section`

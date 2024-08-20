@@ -44,7 +44,6 @@ export default function FaqSection() {
 
 const Wrapper = styled.div`
   padding: 0 5rem;
-  margin-top: 15rem;
   & > *:not(:first-child) {
     margin-top: 3rem;
   }

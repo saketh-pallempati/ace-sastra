@@ -78,7 +78,6 @@ const TESTIMONIALS = [
 export default function Testimonials() {
   return (
     <div>
-      <Separator />
       <TestimonialsWrapper>
         <Swiper modules={[Navigation, Autoplay, A11y]} slidesPerView={1} autoplay={{ delay: 8000 }} centeredSlides navigation loop>
           {TESTIMONIALS.map((singleTestimonial, idx) => (
@@ -100,7 +99,6 @@ export default function Testimonials() {
           ))}
         </Swiper>
       </TestimonialsWrapper>
-      <Separator />
     </div>
   );
 }
@@ -181,6 +179,7 @@ const AuthorContent = styled.div`
   justify-content: space-between;
   align-items: center;
   font-size: 1.4rem;
+  text-align: center;
 `;
 
 const AuthorTitle = styled.p`

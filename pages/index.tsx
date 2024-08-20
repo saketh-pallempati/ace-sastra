@@ -68,25 +68,45 @@ const HomepageWrapper = styled.div`
   & > :last-child {
     margin-bottom: 15rem;
   }
-`;
+  
+  @media (max-width: 768px) {
+    & > :last-child {
+      margin-bottom: 5rem; // Adjusted for smaller screens
+    }
+  } `;
 
 const DarkerBackgroundContainer = styled.div`
-  background: rgb(var(--background));
-
-  & > *:not(:first-child) {
-    margin-top: 15rem;
-  }
-`;
+    background: rgb(var(--background));
+  
+    & > *:not(:first-child) {
+      margin-top: 15rem;
+    }
+  
+    @media (max-width: 768px) {
+      & > *:not(:first-child) {
+        margin-top: 5rem; // Adjusted for smaller screens
+      }
+    }
+  `;
 
 const WhiteBackgroundContainer = styled.div`
-  background: rgb(var(--secondBackground));
-
-  & > :last-child {
-    padding-bottom: 15rem;
-  }
-
-  & > *:not(:first-child) {
-    margin-top: 15rem;
-  }
-`;
-
+    background: rgb(var(--secondBackground));
+  
+    & > :last-child {
+      padding-bottom: 15rem;
+    }
+  
+    & > *:not(:first-child) {
+      margin-top: 15rem;
+    }
+  
+    @media (max-width: 768px) {
+      & > :last-child {
+        padding-bottom: 5rem; // Adjusted for smaller screens
+      }
+  
+      & > *:not(:first-child) {
+        margin-top: 5rem; // Adjusted for smaller screens
+      }
+    }
+  `;
