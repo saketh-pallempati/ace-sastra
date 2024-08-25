@@ -45,19 +45,8 @@ export default function Homepage() {
         </WhiteBackgroundContainer>
         <DarkerBackgroundContainer>
           <Cta />
-          <FeaturesGallery />
+          {/* <FeaturesGallery /> */}
           <SwiperCards />
-          <div id="clusters">
-            <Features />
-          </div>
-          <div id="events">
-            <Testimonials />
-          </div>
-
-          <div id="faq-section">
-            <FaqSection />
-          </div>
-
         </DarkerBackgroundContainer>
       </HomepageWrapper>
     </>

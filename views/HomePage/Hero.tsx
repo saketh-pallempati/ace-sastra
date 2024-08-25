@@ -60,6 +60,7 @@ const CustomButtonGroup = styled(ButtonGroup)`
 `;
 
 const ImageContainer = styled.div`
+  margin : 1%;
   display: flex;
   flex: 1;
   justify-content: flex-end;

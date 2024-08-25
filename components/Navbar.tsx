@@ -8,6 +8,8 @@ import { NavItems, SingleNavItem } from 'types';
 import { media } from 'utils/media';
 import Button from './Button';
 import Container from './Container';
+import Drawer from './Drawer';
+import { HamburgerIcon } from './HamburgerIcon';
 import Logo from './Logo';
 
 const ColorSwitcher = dynamic(() => import('../components/ColorSwitcher'), { ssr: false });
@@ -18,6 +20,7 @@ type NavbarContainerProps = { hidden: boolean; transparent: boolean };
 
 export default function Navbar({ items }: NavbarProps) {
   const router = useRouter();
+  const { toggle } = Drawer.useDrawer();
   const [scrollingDirection, setScrollingDirection] = useState<ScrollingDirections>('none');
 
   let lastScrollY = useRef(0);
@@ -76,12 +79,17 @@ export default function Navbar({ items }: NavbarProps) {
         <ColorSwitcherContainer>
           <ColorSwitcher />
         </ColorSwitcherContainer>
+        <HamburgerMenuWrapper>
+          <HamburgerIcon aria-label="Toggle menu" onClick={toggle} />
+        </HamburgerMenuWrapper>
       </Content>
     </NavbarContainer>
   );
 }
 
 function NavItem({ href, title, outlined }: SingleNavItem) {
+
+
 
   return (
     <NavItemWrapper outlined={outlined}>
@@ -92,26 +100,24 @@ function NavItem({ href, title, outlined }: SingleNavItem) {
   );
 }
 
-const CustomButton = styled(Button)`
-  padding: 0.75rem 1.5rem;
-  line-height: 1.8;
-`;
-
 const NavItemList = styled.div`
   display: flex;
   list-style: none;
-
   ${media('<desktop')} {
     display: none;
   }
 `;
 
+const HamburgerMenuWrapper = styled.div`
+  ${media('>=desktop')} {
+    display: none;
+  }
+`;
 
 const LogoWrapper = styled.a`
   display: flex;
   margin-right: auto;
   text-decoration: none;
-
   color: rgb(var(--logoColor));
 `;
 
@@ -121,12 +127,10 @@ const NavItemWrapper = styled.li<Partial<SingleNavItem>>`
   font-size: 1.3rem;
   text-transform: uppercase;
   line-height: 2;
-
   &:hover {
     background-color: ${(p) => (p.outlined ? 'rgb(var(--primary), 0.8)' : 'transparent')};
     transition: background-color 0.2s;
   }
-
   a {
     display: flex;
     color: ${(p) => (p.outlined ? 'rgb(var(--textSecondary))' : 'rgb(var(--text), 0.75)')};
@@ -135,7 +139,6 @@ const NavItemWrapper = styled.li<Partial<SingleNavItem>>`
     padding: 0.75rem 1.5rem;
     font-weight: 700;
   }
-
   &:not(:last-child) {
     margin-right: 2rem;
   }
@@ -149,12 +152,10 @@ const NavbarContainer = styled.div<NavbarContainerProps>`
   width: 100%;
   height: 8rem;
   z-index: var(--z-navbar);
-
   background-color: rgb(var(--navbarBackground));
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
   visibility: ${(p) => (p.hidden ? 'hidden' : 'visible')};
   transform: ${(p) => (p.hidden ? `translateY(-8rem) translateZ(0) scale(1)` : 'translateY(0) translateZ(0) scale(1)')};
-
   transition-property: transform, visibility, height, box-shadow, background-color;
   transition-duration: 0.15s;
   transition-timing-function: ease-in-out;

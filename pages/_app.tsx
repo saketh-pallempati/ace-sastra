@@ -6,18 +6,19 @@ import 'swiper/css/autoplay';
 import { AppProps } from 'next/dist/shared/lib/router/router';
 import Head from 'next/head';
 import { ColorModeScript } from 'nextjs-color-mode';
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
 import Footer from 'components/Footer';
 import { GlobalStyle } from 'components/GlobalStyles';
 import Navbar from 'components/Navbar';
 import WaveCta from 'components/WaveCta';
 import { NavItems } from 'types';
+import NavigationDrawer from 'components/NavigationDrawer';
 
 const navItems: NavItems = [
-  { title: 'Clusters', href: '#clusters' },
-  { title: 'Events', href: '#events' },
-  { title: 'FAQ', href: '#faq-section' },
+  { title: 'Clusters', href: 'clusters' },
+  { title: 'Events', href: 'events' },
+  { title: 'FAQ', href: 'faq' },
   { title: 'Contact', href: '#footer', outlined: true },
 ];
 
@@ -40,16 +41,23 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <ColorModeScript />
       <GlobalStyle />
-
-      <Navbar items={navItems} />
-
-      <Component {...pageProps} />
-      <WaveCta />
-      <div id="footer">
-        <Footer />
-      </div>
+      <Providers>
+        <Navbar items={navItems} />
+        <Component {...pageProps} />
+        <WaveCta />
+        <div id="footer">
+          <Footer />
+        </div>
+      </Providers>
     </>
   );
 }
+
+function Providers<T>({ children }: PropsWithChildren<T>) {
+  return (
+    <NavigationDrawer items={navItems}>{children}</NavigationDrawer>
+  );
+}
+
 
 export default MyApp;

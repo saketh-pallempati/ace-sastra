@@ -56,23 +56,33 @@ const TESTIMONIALS = [
     imageURL: '/Events/kyp.jpg',
   },
   {
-    name: 'Linux Security – Tech Talk Series - Ep. 1',
-    content: `Mr. Nilesh Vaghela, CEO of Electromech Cloud Pvt. Ltd., inaugurated the Tech Talk series with a deep dive into Linux Security. Covering fundamental Linux concepts and advanced security strategies, Mr. Vaghela engaged over 120 students from the School of Computing. His expertise in enterprise-level solutions and open-source technologies provided invaluable insights into securing Linux systems effectively.`,
+    name: 'Craft Your Career',
+    content: `    We had an insightful session with Shri. Venkatesh Bhupathi, an alumnus of SASTRA and Principal Manager at Microsoft Experiences + Devices, who provided exclusive career guidance to SOC final year students, encouraging them to take bold steps in their professional environment.`,
     author: {
-      date: '26 January, 2024 (6 p.m. - 7 p.m.)',
-      venue: 'Online',
+      date: '24 August, 2024',
+      venue: 'SoC Auditorium',
     },
-    imageURL: '/Events/online-1.jpg',
+    imageURL: '/Events/CYC.jpg',
   },
-  {
-    name: 'Demystifying LLM – Tech Talk Series – Ep. 2',
-    content: `Dr. Guru S. Anand, Executive Director of Innovation at Mizuho Bank, Singapore, delved into the intricacies of Large Language Models (LLM) in the second episode of the Tech Talk series. With expertise in AI, ML, and Fintech, Dr. Anand provided valuable insights into the applications and implications of LLM, sparking discussions on cutting-edge technological advancements in the field.`,
-    author: {
-      date: '22 March, 2024 (9:00 a.m. - 10:30 a.m.)',
-      venue: 'Online',
-    },
-    imageURL: '/Events/online-2.jpg',
-  },
+
+  // {
+  //   name: 'Linux Security – Tech Talk Series - Ep. 1',
+  //   content: `Mr. Nilesh Vaghela, CEO of Electromech Cloud Pvt. Ltd., inaugurated the Tech Talk series with a deep dive into Linux Security. Covering fundamental Linux concepts and advanced security strategies, Mr. Vaghela engaged over 120 students from the School of Computing. His expertise in enterprise-level solutions and open-source technologies provided invaluable insights into securing Linux systems effectively.`,
+  //   author: {
+  //     date: '26 January, 2024 (6 p.m. - 7 p.m.)',
+  //     venue: 'Online',
+  //   },
+  //   imageURL: '/Events/online-1.jpg',
+  // },
+  // {
+  //   name: 'Demystifying LLM – Tech Talk Series – Ep. 2',
+  //   content: `Dr. Guru S. Anand, Executive Director of Innovation at Mizuho Bank, Singapore, delved into the intricacies of Large Language Models (LLM) in the second episode of the Tech Talk series. With expertise in AI, ML, and Fintech, Dr. Anand provided valuable insights into the applications and implications of LLM, sparking discussions on cutting-edge technological advancements in the field.`,
+  //   author: {
+  //     date: '22 March, 2024 (9:00 a.m. - 10:30 a.m.)',
+  //     venue: 'Online',
+  //   },
+  //   imageURL: '/Events/online-2.jpg',
+  // },
 ];
 
 export default function Testimonials() {

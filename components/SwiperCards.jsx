@@ -1,20 +1,20 @@
 import Image from 'next/image';
-import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Autoplay, EffectCoverflow, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SectionTitle from 'components/SectionTitle';
 
 const SwiperCards = () => {
-  const [clusters, setClusters] = useState([
-    { name: 'Lead_Name', cluster: 'President', imageURL: '/Leads/author-photo-1.jpeg' },
-    { name: 'Lead_Name', cluster: 'General secretary', imageURL: '/Leads/author-photo-2.jpeg' },
-    { name: 'Lead_Name', cluster: 'Organizing secretary', imageURL: '/Leads/author-photo-3.jpeg' },
-    { name: 'Lead_Name', cluster: 'Technical head', imageURL: '/Leads/author-photo-1.jpeg' },
-    { name: 'Lead_Name', cluster: 'Non tech head', imageURL: '/Leads/author-photo-2.jpeg' },
-    { name: 'Lead_Name', cluster: 'Public relations', imageURL: '/Leads/author-photo-3.jpeg' },
-    { name: 'Lead_Name', cluster: 'Event coordinator', imageURL: '/Leads/author-photo-1.jpeg' }
-  ]);
+
+  const clusters = [
+    { name: 'Tulip', cluster: 'President', imageURL: '/Leads/Tulip raaj.jpg' },
+    { name: 'Ananya', cluster: 'Secretary', imageURL: '/Leads/Ananya C.jpg' },
+    { name: 'Rengasayee', cluster: 'Treasurer', imageURL: '/Leads/Rengasayee.jpeg' },
+    { name: 'Tharun', cluster: 'Event coordinator', imageURL: '/Leads/Tharun S K.jpg' },
+    { name: 'Shiny', cluster: 'Creative head', imageURL: '/Leads/ShinyGrace.jpg' },
+    { name: 'Sherlin', cluster: 'Technical head', imageURL: '/Leads/SherlinPreethiJ.jpg' },
+    { name: 'Naveen', cluster: 'Public relations officer', imageURL: '/Leads/Naveen Kumar.jpg' }
+  ]
 
   return (
     <Container>
@@ -84,7 +84,6 @@ const Collection = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 5rem;
 
   .swiper {
     width: 100%;

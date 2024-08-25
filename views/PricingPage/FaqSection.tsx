@@ -5,7 +5,6 @@ import SectionTitle from 'components/SectionTitle';
 export default function FaqSection() {
   return (
     <Wrapper>
-      <SectionTitle>Frequently Asked Questions</SectionTitle>
       <Accordion title="Who can join the Association of Computing Engineers (ACE)?">
         ACE is open to 2nd or 3rd year student enrolled in the School of Computing at SASTRA University. Whether you&apos;re B.Tech in
         computer science, information technology, or any department of SoC, you&apos;re welcome to join us!

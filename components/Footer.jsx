@@ -1,26 +1,25 @@
 import { Copyright, Facebook, Github, Instagram, Linkedin, Twitter } from 'lucide-react';
-import React from 'react';
 import styled from 'styled-components';
 
 const FooterContainer = styled.div`
+
   padding: 2rem 6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-top: 1px solid hsla(214.3, 31.8%, 91.4%, 0.4);
-  background-image: -webkit-linear-gradient(
+
+    backdrop-filter: blur(10px);
+    background: rgb( 10,18,30);
+    background-image: -webkit-linear-gradient(
       hsla(217.2, 32.6%, 17.5%, 0.4),
       hsla(217.2, 32.6%, 17.5%, 0.3),
       hsla(217.2, 32.6%, 17.5%, 0.1)
     );
-    backdrop-filter: blur(10px);
-
 
   .info {
     display: flex;
     flex-direction: column;
-  
-
 
     .copy {
       display: flex;
@@ -32,6 +31,7 @@ const FooterContainer = styled.div`
       svg {
         height: 16px;
         width: 16px;
+        color: white;
       }
     }
     .design {
