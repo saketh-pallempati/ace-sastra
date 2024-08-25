@@ -16,9 +16,9 @@ import { NavItems } from 'types';
 import NavigationDrawer from 'components/NavigationDrawer';
 
 const navItems: NavItems = [
-  { title: 'Clusters', href: 'clusters' },
-  { title: 'Events', href: 'events' },
-  { title: 'FAQ', href: 'faq' },
+  { title: 'Clusters', href: '/clusters' },
+  { title: 'Events', href: '/events' },
+  { title: 'FAQ', href: '/faq' },
   { title: 'Contact', href: '#footer', outlined: true },
 ];
 
@@ -54,8 +54,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 
 function Providers<T>({ children }: PropsWithChildren<T>) {
+  const navItemsWithoutLast = navItems.slice(0, -1);
   return (
-    <NavigationDrawer items={navItems}>{children}</NavigationDrawer>
+    <NavigationDrawer items={navItemsWithoutLast}>{children}</NavigationDrawer>
   );
 }
 

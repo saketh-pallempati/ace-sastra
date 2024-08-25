@@ -1,5 +1,7 @@
+import React, { useEffect, useRef } from 'react';
 import NextImage from 'next/image';
 import styled from 'styled-components';
+import VanillaTilt from 'vanilla-tilt';
 
 interface BasicCardProps {
   title: string;
@@ -7,17 +9,38 @@ interface BasicCardProps {
   imageUrl: string;
 }
 
+interface TiltHTMLElement extends HTMLDivElement {
+  vanillaTilt: {
+    destroy: () => void;
+  };
+}
+
 export default function BasicCard({ title, description, imageUrl }: BasicCardProps) {
+  const cardRef = useRef<TiltHTMLElement>(null);
+
+  useEffect(() => {
+    if (cardRef.current) {
+      VanillaTilt.init(cardRef.current, {
+        max: 10,
+        speed: 1000,
+        glare: false,
+      });
+    }
+    return () => {
+      if (cardRef.current) {
+        cardRef.current.vanillaTilt.destroy();
+      }
+    };
+  }, []);
+
   return (
-    <Card>
-      <NextImage src={imageUrl} width={128} height={128} alt={title}  />
+    <Card ref={cardRef}>
+      <NextImage src={imageUrl} width={128} height={128} alt={title} />
       <Title>{title}</Title>
       <Description>{description}</Description>
     </Card>
   );
 }
-
-
 
 const Card = styled.div`
   display: flex;
@@ -32,6 +55,7 @@ const Card = styled.div`
   border-radius: 0.6rem;
   color: rgb(var(--text));
   font-size: 1.6rem;
+  transition: transform 0.2s;
 
   & > *:not(:first-child) {
     margin-top: 1rem;

@@ -46,8 +46,8 @@ export const GlobalStyle = createGlobalStyle`
 :root {
   --font: 'Poppins', sans-serif;
   
-  --shadow-md: 0 2px 4px 0 rgb(12 0 46 / 20%);
-  --shadow-lg: 0 10px 14px 0 rgb(12 0 46 / 30%);
+--shadow-md: 0 2px 4px 0 rgb(12 0 46 / 20%);
+--shadow-lg: 0 10px 14px 0 rgb(12 0 46 / 30%);
   
   --z-sticky: 7777;
   --z-navbar: 8888;

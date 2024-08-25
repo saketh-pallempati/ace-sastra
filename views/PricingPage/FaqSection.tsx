@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import Accordion from 'components/Accordion';
-import SectionTitle from 'components/SectionTitle';
 
 export default function FaqSection() {
   return (
@@ -42,7 +41,6 @@ export default function FaqSection() {
 }
 
 const Wrapper = styled.div`
-  padding: 0 5rem;
   & > *:not(:first-child) {
     margin-top: 3rem;
   }

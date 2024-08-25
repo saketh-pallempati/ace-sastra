@@ -7,14 +7,14 @@ import SectionTitle from 'components/SectionTitle';
 const SwiperCards = () => {
 
   const clusters = [
-    { name: 'Tulip', cluster: 'President', imageURL: '/Leads/Tulip raaj.jpg' },
-    { name: 'Ananya', cluster: 'Secretary', imageURL: '/Leads/Ananya C.jpg' },
-    { name: 'Rengasayee', cluster: 'Treasurer', imageURL: '/Leads/Rengasayee.jpeg' },
-    { name: 'Tharun', cluster: 'Event coordinator', imageURL: '/Leads/Tharun S K.jpg' },
-    { name: 'Shiny', cluster: 'Creative head', imageURL: '/Leads/ShinyGrace.jpg' },
-    { name: 'Sherlin', cluster: 'Technical head', imageURL: '/Leads/SherlinPreethiJ.jpg' },
-    { name: 'Naveen', cluster: 'Public relations officer', imageURL: '/Leads/Naveen Kumar.jpg' }
-  ]
+      { name: 'Tulip Raaj K', cluster: 'President', imageURL: '/Leads/Tulip raaj.jpg' },
+      { name: 'Ananya C', cluster: 'Secretary', imageURL: '/Leads/Ananya C.jpg' },
+      { name: 'Srinivasa Rengasayee', cluster: 'Treasurer', imageURL: '/Leads/Rengasayee.jpeg' },
+      { name: 'Tharun S K', cluster: 'Event coordinator', imageURL: '/Leads/Tharun S K.jpg' },
+      { name: 'Shiny Grace F', cluster: 'Creative head', imageURL: '/Leads/ShinyGrace.jpg' },
+      { name: 'Sherlin J Preethi', cluster: 'Technical head', imageURL: '/Leads/SherlinPreethiJ.jpg' },
+      { name: 'Naveen Kumar S', cluster: 'Public relations officer', imageURL: '/Leads/Naveen Kumar.jpg' }
+  ];
 
   return (
     <Container>
@@ -46,7 +46,7 @@ const SwiperCards = () => {
             },
             768: {
               slidesPerView: 3,
-              spaceBetween: 15,
+              spaceBetween: 20,
             },
           }}
           modules={[Autoplay, Navigation, EffectCoverflow]}
@@ -86,7 +86,7 @@ const Collection = styled.section`
   align-items: center;
 
   .swiper {
-    width: 100%;
+    width: 90%;
   }
 
   .swiper-wrapper {
@@ -143,7 +143,7 @@ const TextContent = styled.div`
   flex-direction: column;
 
   h3 {
-    font-size: 1.7rem;
+    font-size: 2rem;
     font-weight: 500;
 
     @media (max-width: 768px) {
@@ -157,7 +157,7 @@ const TextContent = styled.div`
 
   p {
     max-width: 22rem;
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     font-weight: 400;
     text-align: center;
 

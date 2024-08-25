@@ -1,11 +1,10 @@
-import NextLink from 'next/link';
 import styled from 'styled-components';
-import Button from 'components/Button';
 import ButtonGroup from 'components/ButtonGroup';
 import Container from 'components/Container';
 import HeroIllustration from 'components/HeroIllustation';
 import OverTitle from 'components/OverTitle';
 import { media } from 'utils/media';
+import HeroLogo from 'components/HeroLogo';
 
 export default function Hero() {
 
@@ -15,21 +14,14 @@ export default function Hero() {
         <CustomOverTitle>the official club of the School of Computing</CustomOverTitle>
         <Heading>Association of Computing Engineers</Heading>
         <Description>
-         Established with the aim of promoting excellence in computing education and research, ACE organizes a wide range of events, hackathons, webinars, and workshops throughout the academic year.
+          Established with the aim of promoting excellence in computing education and research, ACE organizes a wide range of events, hackathons, webinars, and workshops throughout the academic year.
         </Description>
-        {/* <CustomButtonGroup>
-          <Button onClick={() => setIsModalOpened(true)}>
-            Subscribe to the newsletter <span>&rarr;</span>
-          </Button>
-          <NextLink href="#whitepaper" passHref>
-            <Button transparent>
-              Features <span>&rarr;</span>
-            </Button>
-          </NextLink>
-        </CustomButtonGroup> */}
       </Contents>
       <ImageContainer>
         <HeroIllustration />
+        <LogoContainer>
+          <HeroLogo />
+        </LogoContainer>
       </ImageContainer>
     </HeroWrapper>
   );
@@ -41,6 +33,8 @@ const HeroWrapper = styled(Container)`
 
   ${media('<=desktop')} {
     padding-top: 1rem;
+    width: 100%; 
+    height: auto; 
     flex-direction: column;
     align-items: center;
   }
@@ -55,27 +49,41 @@ const Contents = styled.div`
   }
 `;
 
-const CustomButtonGroup = styled(ButtonGroup)`
-  margin-top: 4rem;
-`;
-
 const ImageContainer = styled.div`
-  margin : 1%;
+  position: relative;
   display: flex;
   flex: 1;
   justify-content: flex-end;
   align-items: flex-start;
-
+  width: 100%;
   svg {
-    max-width: 45rem;
+    border-radius: 3rem;
+    max-height: 45rem;
   }
 
   ${media('<=desktop')} {
     margin-top: 2rem;
     justify-content: center;
-    svg {
-      max-width: 80%;
-    }
+    align-items: center;
+  }
+`;
+const LogoContainer = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  pointer-events: none;
+  margin: 0 6%;
+  z-index:1;
+  mix-blend-mode:hard-light;
+
+  ${media('<=desktop')} {
+    margin-top: 2rem;
+    padding: 10%;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
