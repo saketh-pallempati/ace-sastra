@@ -13,7 +13,7 @@
     "@n8tb1t/use-scroll-position": "^2.0.3",
     "@svgr/webpack": "^8.0.0",
     "css-in-js-media": "^2.0.1",
-    "date-fns": "^2.29.3",
+    "date-fns": "^3.6.0",
     "gray-matter": "^4.0.3",
     "lodash": "^4.17.21",
     "lucide-react": "^0.428.0",
