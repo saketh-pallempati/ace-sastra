@@ -56,7 +56,7 @@ const Card = styled.div`
   display: flex;
   padding: 2.5rem;
   background: var(--cardBackground);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
   flex-direction: column;
   justify-content: center;
   align-items: center;

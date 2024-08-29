@@ -12,7 +12,7 @@ const BoldList = () => {
     <Gallery>
       <StyledParagraph data-item="Principles">Principles</StyledParagraph>
       <StyledNav>
-        <ul className="menuItems">
+        <ul>
           {['Innovation', 'Excellence', 'Collaboration', 'Education', 'Community'].map((item) => (
             <li key={item}>
               <MenuItem
@@ -45,6 +45,7 @@ const Gallery = styled.div`
 const StyledParagraph = styled.p`
   font-size: 69px;
   text-transform: uppercase;
+  color: #fff;
   font-weight: 600;
   margin-bottom: 20px;
 
@@ -60,7 +61,7 @@ const StyledParagraph = styled.p`
 const StyledNav = styled.nav`
   padding: 16px;
 
-  .menuItems {
+  ul {
     list-style: none;
     display: flex;
     justify-content: center;
@@ -74,7 +75,7 @@ const StyledNav = styled.nav`
   }
 
   @media (max-width: 768px) {
-    .menuItems {
+    ul {
       li {
         margin: 15px;
       }
@@ -82,7 +83,7 @@ const StyledNav = styled.nav`
   }
 
   @media (max-width: 480px) {
-    .menuItems {
+    ul {
       flex-direction: column;
       align-items: center;
 
@@ -108,6 +109,21 @@ const MenuItem = styled.div`
   &:hover {
     color: rgb(var(--primary));
   }
+
+  ${({ isSelected }) =>
+    isSelected &&
+    `
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      z-index: -1;
+    }
+  `}
 `;
 
 const TextSection = styled.div`

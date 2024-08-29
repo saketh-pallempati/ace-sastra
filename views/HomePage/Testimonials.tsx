@@ -17,7 +17,6 @@ const TESTIMONIALS = [
     },
     imageURL: '/Events/coderush.jpg',
   },
-
   {
     name: 'LINUX Intern Launchpad',
     content: `In collaboration with Electromech Corporation, ACE organized the Linux Internship Qualifying Test to offer summer internship opportunities for 3rd-year students. The test, focusing on Computer Networks and Operating Systems, saw active participation from 128 students out of 168 registrations. This initiative aimed to bridge the gap between academia and industry by providing practical experience in a real-world setting.`,
@@ -61,16 +60,25 @@ const TESTIMONIALS = [
       date: '24 August, 2024',
       venue: 'SoC Auditorium',
     },
-    imageURL: '/Events/cyc.jpg',
+    imageURL: '/Events/micro.jpg',
   },
-
 ];
 
 export default function Testimonials() {
   return (
     <div>
       <TestimonialsWrapper>
-        <Swiper modules={[Navigation, Autoplay, A11y, EffectCreative]} slidesPerView={1} autoplay={{ delay: 5000 }} centeredSlides navigation loop >
+        <Swiper
+          modules={[Navigation, Autoplay, A11y, EffectCreative]}
+          slidesPerView={1}
+          autoplay={{ delay: 5000 }}
+          centeredSlides
+          navigation
+          loop
+          touchRatio={1.5}
+          touchReleaseOnEdges={true}
+          resistanceRatio={0.85}
+        >
           {TESTIMONIALS.map((singleTestimonial, idx) => (
             <SwiperSlide key={idx}>
               <TestimonialCard>
