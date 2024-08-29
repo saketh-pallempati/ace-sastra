@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import ButtonGroup from 'components/ButtonGroup';
 import Container from 'components/Container';
 import HeroIllustration from 'components/HeroIllustation';
 import OverTitle from 'components/OverTitle';
@@ -74,16 +73,38 @@ const LogoContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  pointer-events: none;
+  pointer-events: auto;
   margin: 0 6%;
-  z-index:1;
-  mix-blend-mode:hard-light;
+  z-index: 1;
+  mix-blend-mode: screen;
 
   ${media('<=desktop')} {
     margin-top: 2rem;
     padding: 10%;
     justify-content: center;
     align-items: center;
+  }
+
+  svg {
+    border-radius: 50%;
+    transition: transform 0.5s ease-out; 
+  }
+
+  &:hover svg {
+    transform: scale(1.03);
+    animation: electric-border 1.5s infinite;
+  }
+
+  @keyframes electric-border {
+    0% {
+      box-shadow: 0 0 3px #00bfff, 0 0 6px #00bfff, 0 0 12px #00bfff, 0 0 24px #00bfff;
+    }
+    50% {
+      box-shadow: 0 0 6px #1e90ff, 0 0 12px #1e90ff, 0 0 24px #1e90ff, 0 0 48px #1e90ff;
+    }
+    100% {
+      box-shadow: 0 0 3px #00bfff, 0 0 6px #00bfff, 0 0 12px #00bfff, 0 0 24px #00bfff;
+    }
   }
 `;
 

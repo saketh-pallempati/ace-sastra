@@ -4,11 +4,8 @@ import BasicSection from 'components/BasicSection';
 import SwiperCards from 'components/SwiperCards.jsx';
 import { EnvVars } from 'env';
 import Cta from 'views/HomePage/Cta';
-import Features from 'views/HomePage/Features';
-import FeaturesGallery from 'views/HomePage/FeaturesGallery';
 import Hero from 'views/HomePage/Hero';
-import Testimonials from 'views/HomePage/Testimonials';
-import FaqSection from 'views/PricingPage/FaqSection';
+import ThreeLayersCircle from 'components/ThreeLayersCircle';
 export default function Homepage() {
   return (
     <>
@@ -45,7 +42,6 @@ export default function Homepage() {
         </WhiteBackgroundContainer>
         <DarkerBackgroundContainer>
           <Cta />
-          {/* <FeaturesGallery /> */}
           <SwiperCards />
         </DarkerBackgroundContainer>
       </HomepageWrapper>

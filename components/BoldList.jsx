@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-
-const CircleMenu = () => {
+const BoldList = () => {
   const [selectedItem, setSelectedItem] = useState('Collaboration');
 
   const handleItemClick = (item) => {
@@ -14,11 +13,17 @@ const CircleMenu = () => {
       <StyledParagraph data-item="Principles">Principles</StyledParagraph>
       <StyledNav>
         <ul className="menuItems">
-          <li><a data-item="Innovation" onClick={() => handleItemClick('Innovation')}>Innovation</a></li>
-          <li><a data-item="Excellence" onClick={() => handleItemClick('Excellence')}>Excellence</a></li>
-          <li><a data-item="Collaboration" onClick={() => handleItemClick('Collaboration')}>Collaboration</a></li>
-          <li><a data-item="Education" onClick={() => handleItemClick('Education')}>Education</a></li>
-          <li><a data-item="Community" onClick={() => handleItemClick('Community')}>Community</a></li>
+          {['Innovation', 'Excellence', 'Collaboration', 'Education', 'Community'].map((item) => (
+            <li key={item}>
+              <MenuItem
+                data-item={item}
+                onClick={() => handleItemClick(item)}
+                isSelected={selectedItem === item}
+              >
+                {item}
+              </MenuItem>
+            </li>
+          ))}
         </ul>
       </StyledNav>
       <TextSection isVisible={!!selectedItem}>
@@ -31,15 +36,17 @@ const CircleMenu = () => {
     </Gallery>
   );
 };
+
 const Gallery = styled.div`
   text-align: center;
+  padding: 20px;
 `;
 
 const StyledParagraph = styled.p`
   font-size: 69px;
-  color: #ccc;
   text-transform: uppercase;
   font-weight: 600;
+  margin-bottom: 20px;
 
   @media (max-width: 768px) {
     font-size: 48px;
@@ -63,34 +70,6 @@ const StyledNav = styled.nav`
 
     li {
       margin: 20px;
-
-      a {
-        text-decoration: none;
-        color: #8f8f8f;
-        font-size: 24px;
-        font-weight: 400;
-        transition: all 0.5s ease-in-out;
-        position: relative;
-        text-transform: uppercase;
-
-        &::before {
-          content: attr(data-item);
-          transition: 0.5s;
-          color: rgb(var(--primary));
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          width: 0;
-          overflow: hidden;
-        }
-
-        &:hover::before {
-          width: 100%;
-          transition: all 0.5s ease-in-out;
-        }
-      }
     }
   }
 
@@ -98,10 +77,6 @@ const StyledNav = styled.nav`
     .menuItems {
       li {
         margin: 15px;
-
-        a {
-          font-size: 20px;
-        }
       }
     }
   }
@@ -113,17 +88,31 @@ const StyledNav = styled.nav`
 
       li {
         margin: 10px;
-
-        a {
-          font-size: 18px;
-        }
       }
     }
   }
 `;
 
+const MenuItem = styled.div`
+  text-decoration: none;
+  color: ${({ isSelected }) => (isSelected ? 'rgb(var(--primary))' : '#8f8f8f')};
+  font-size: 24px;
+  font-weight: 400;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  overflow: hidden;
+
+  &:hover {
+    color: rgb(var(--primary));
+  }
+`;
+
 const TextSection = styled.div`
   display: ${({ isVisible }) => (isVisible ? 'block' : 'none')};
+  margin-top: 20px;
 `;
 
 const StyledBlockquote = styled.blockquote`
@@ -166,7 +155,7 @@ const StyledBlockquote = styled.blockquote`
     position: absolute;
     border-bottom: 3px solid rgb(var(--primary));
     height: 3px;
-    width: 200px;
+    width: 200px; 
   }
 
   @keyframes fadeInSlideDown {
@@ -177,5 +166,4 @@ const StyledBlockquote = styled.blockquote`
   }
 `;
 
-
-export default CircleMenu;
+export default BoldList;

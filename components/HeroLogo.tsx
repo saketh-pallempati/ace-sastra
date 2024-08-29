@@ -72,7 +72,5 @@ export default function HeroLogo() {
                 </linearGradient>
             </defs>
         </svg>
-
-
     )
 }

@@ -7,13 +7,13 @@ import SectionTitle from 'components/SectionTitle';
 const SwiperCards = () => {
 
   const clusters = [
-      { name: 'Tulip Raaj K', cluster: 'President', imageURL: '/Leads/Tulip raaj.jpg' },
-      { name: 'Ananya C', cluster: 'Secretary', imageURL: '/Leads/Ananya C.jpg' },
-      { name: 'Srinivasa Rengasayee', cluster: 'Treasurer', imageURL: '/Leads/Rengasayee.jpeg' },
-      { name: 'Tharun S K', cluster: 'Event coordinator', imageURL: '/Leads/Tharun S K.jpg' },
-      { name: 'Shiny Grace F', cluster: 'Creative head', imageURL: '/Leads/ShinyGrace.jpg' },
-      { name: 'Sherlin J Preethi', cluster: 'Technical head', imageURL: '/Leads/SherlinPreethiJ.jpg' },
-      { name: 'Naveen Kumar S', cluster: 'Public relations officer', imageURL: '/Leads/Naveen Kumar.jpg' }
+    { name: 'Tulip Raaj K', cluster: 'President', imageURL: '/Leads/Tulip raaj.jpg' },
+    { name: 'Ananya C', cluster: 'Secretary', imageURL: '/Leads/Ananya C.jpg' },
+    { name: 'Srinivasa Rengasayee', cluster: 'Treasurer', imageURL: '/Leads/Rengasayee.jpeg' },
+    { name: 'Tharun S K', cluster: 'Organizing secretary', imageURL: '/Leads/Tharun S K.jpg' },
+    { name: 'Shiny Grace F', cluster: 'Creative head', imageURL: '/Leads/ShinyGrace.jpg' },
+    { name: 'Sherlin Preethi J', cluster: 'Technical head', imageURL: '/Leads/SherlinPreethiJ.jpg' },
+    { name: 'Naveen Kumar S', cluster: 'Public relations officer', imageURL: '/Leads/Naveen Kumar.jpg' }
   ];
 
   return (

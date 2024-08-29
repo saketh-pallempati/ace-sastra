@@ -19,7 +19,8 @@ export const GlobalStyle = createGlobalStyle`
   --primary: 22,115,255; 
   --secondary: 10,18,30;
   --tertiary: 231,241,251;
-  --cardBackground: 255,255,255;
+  --cardBackground: linear-gradient(135deg, rgba(173, 216, 230, 1) 0%, rgba(240, 248, 255, 1) 100%);
+  --cardShine : radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(9, 89, 180, 0.1), transparent); 
   --inputBackground: 255,255,255;
   --navbarBackground: 255,255,255;
   --modalBackground: 251,251,253;
@@ -35,7 +36,9 @@ export const GlobalStyle = createGlobalStyle`
   --primary: 22,115,255; 
   --secondary: 10,18,30;
   --tertiary: 231,241,251;
-  --cardBackground: 45,55,72;
+  --cardBackground: rgb(45,55,72);
+  --cardShine : radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255, 255, 255, 0.1), transparent); 
+
   --inputBackground: 45,55,72;
   --navbarBackground: 45,55,72;
   --modalBackground: 26,32,44;
@@ -45,10 +48,8 @@ export const GlobalStyle = createGlobalStyle`
 
 :root {
   --font: 'Poppins', sans-serif;
-  
---shadow-md: 0 2px 4px 0 rgb(12 0 46 / 20%);
---shadow-lg: 0 10px 14px 0 rgb(12 0 46 / 30%);
-  
+  --shadow-md: 0 6px 8px -2px rgba(12, 0, 46, 0.2), 0 4px 6px -2px rgba(12, 0, 46, 0.1);
+  --shadow-lg: 0 12px 17px -4px rgba(12, 0, 46, 0.2), 0 6px 8px -3px rgba(12, 0, 46, 0.1);
   --z-sticky: 7777;
   --z-navbar: 8888;
   --z-drawer: 9999;

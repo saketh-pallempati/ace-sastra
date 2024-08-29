@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import CircleMenu from 'components/CircleMenu';
-
+import BoldList from 'components/BoldList.jsx';
 export default function Cta() {
   return (
     <CtaWrapper>
-      <CircleMenu />
+      <BoldList />
     </CtaWrapper>
   );
 }

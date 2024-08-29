@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
 
-import { A11y, Autoplay, Navigation } from 'swiper';
+import { A11y, Autoplay, EffectCreative, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Container from 'components/Container';
 import { media } from 'utils/media';
@@ -61,7 +61,7 @@ const TESTIMONIALS = [
       date: '24 August, 2024',
       venue: 'SoC Auditorium',
     },
-    imageURL: '/Events/CYC.jpg',
+    imageURL: '/Events/cyc.jpg',
   },
 
 ];
@@ -70,7 +70,7 @@ export default function Testimonials() {
   return (
     <div>
       <TestimonialsWrapper>
-        <Swiper modules={[Navigation, Autoplay, A11y]} slidesPerView={1} autoplay={{ delay: 8000 }} centeredSlides navigation loop>
+        <Swiper modules={[Navigation, Autoplay, A11y, EffectCreative]} slidesPerView={1} autoplay={{ delay: 5000 }} centeredSlides navigation loop >
           {TESTIMONIALS.map((singleTestimonial, idx) => (
             <SwiperSlide key={idx}>
               <TestimonialCard>
@@ -141,7 +141,7 @@ const Overlay = styled.div`
 
   ${media('<=desktop')} {
     padding: 1rem;
-    font-size: 0.7rem;
+    font-size: 0.5rem;
   }
 `;
 
@@ -192,6 +192,7 @@ const Content = styled.blockquote`
 
   ${media('<=desktop')} {
     max-width: 100%;
+    font-size: 1rem;
   }
 `;
 

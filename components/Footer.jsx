@@ -122,13 +122,17 @@ const Footer = () => {
         <a href="#contact" aria-label="Find us on Twitter">
           <Twitter />
         </a>
-        <a href="#contact" aria-label="Find us on Instagram">
+        <a href="https://www.instagram.com/ace_soc_sastra?igsh=emN2b3E5NnFkYTc5"
+          target="_blank"
+          rel="noopener noreferrer" aria-label="Find us on Instagram">
           <Instagram />
         </a>
         <a href="#contact" aria-label="Find us on Facebook">
           <Facebook />
         </a>
-        <a href="#contact" aria-label="Find us on LinkedIn">
+        <a href="https://www.linkedin.com/company/ace-sastra-soc"
+          target="_blank"
+          rel="noopener noreferrer" aria-label="Find us on LinkedIn">
           <Linkedin />
         </a>
       </div>
