@@ -66,7 +66,7 @@ const FEATURES = [
 
 export default function Features() {
   return (
-    <Container>
+    <>
       <MobileView>
         <CustomSwiper
           effect="cards"
@@ -88,13 +88,12 @@ export default function Features() {
           ))}
         </CustomAutofitGrid>
       </DesktopView>
-    </Container>
+    </>
   );
 }
 
 const MobileView = styled.div`
   display: none;
-
   ${media('<=tablet')} {
     display: block;
   }
@@ -112,7 +111,7 @@ const CustomSwiper = styled(Swiper)`
   width: 100%;
   height: 100%;
   overflow: clip;
-  padding: 0 15%;
+  padding: 0 10%;
   .swiper-slide {
     display: flex;
     justify-content: center;
