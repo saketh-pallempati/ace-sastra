@@ -82,11 +82,13 @@ export default function Features() {
         </CustomSwiper>
       </MobileView>
       <DesktopView>
-        <CustomAutofitGrid>
-          {FEATURES.map((singleFeature, idx) => (
-            <BasicCard key={singleFeature.title} {...singleFeature} />
-          ))}
-        </CustomAutofitGrid>
+        <Container>
+          <CustomAutofitGrid>
+            {FEATURES.map((singleFeature, idx) => (
+              <BasicCard key={singleFeature.title} {...singleFeature} />
+            ))}
+          </CustomAutofitGrid>
+        </Container>
       </DesktopView>
     </>
   );
