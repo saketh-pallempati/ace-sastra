@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import Container from 'components/Container';
 import HeroIllustration from 'components/HeroIllustation';
+import HeroLogo from 'components/HeroLogo';
 import OverTitle from 'components/OverTitle';
 import { media } from 'utils/media';
-import HeroLogo from 'components/HeroLogo';
 
 export default function Hero() {
 
@@ -90,9 +90,11 @@ const LogoContainer = styled.div`
     transition: transform 0.5s ease-out; 
   }
 
-  &:hover svg {
-    transform: scale(1.03);
-    animation: electric-border 1.5s infinite;
+  ${media('>=desktop')} {
+    &:hover svg {
+      transform: scale(1.03);
+      animation: electric-border 1.5s infinite;
+    }
   }
 
   @keyframes electric-border {

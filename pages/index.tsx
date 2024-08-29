@@ -5,7 +5,6 @@ import SwiperCards from 'components/SwiperCards.jsx';
 import { EnvVars } from 'env';
 import Cta from 'views/HomePage/Cta';
 import Hero from 'views/HomePage/Hero';
-import ThreeLayersCircle from 'components/ThreeLayersCircle';
 export default function Homepage() {
   return (
     <>

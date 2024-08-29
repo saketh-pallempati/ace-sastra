@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { EffectCards, Navigation } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import AutofitGrid from 'components/AutofitGrid';
 import BasicCard from 'components/BasicCard';
 import Container from 'components/Container';
@@ -38,7 +40,7 @@ const FEATURES = [
   },
   {
     imageUrl: '/Clusters/GD.png',
-    title: 'Graphic Designing for posters and posts',
+    title: 'Graphic Designing',
     description:
       'This sub-cluster focuses on creating visually appealing graphics for posters and social media posts. Members will use their design skills to create engaging and informative visual content.',
   },
@@ -65,14 +67,57 @@ const FEATURES = [
 export default function Features() {
   return (
     <Container>
-      <CustomAutofitGrid>
-        {FEATURES.map((singleFeature, idx) => (
-          <BasicCard key={singleFeature.title} {...singleFeature} />
-        ))}
-      </CustomAutofitGrid>
+      <MobileView>
+        <CustomSwiper
+          effect="cards"
+          grabCursor={true}
+          navigation={true}
+          modules={[EffectCards, Navigation]}
+        >
+          {FEATURES.map((singleFeature, idx) => (
+            <SwiperSlide key={singleFeature.title}>
+              <BasicCard {...singleFeature} />
+            </SwiperSlide>
+          ))}
+        </CustomSwiper>
+      </MobileView>
+      <DesktopView>
+        <CustomAutofitGrid>
+          {FEATURES.map((singleFeature, idx) => (
+            <BasicCard key={singleFeature.title} {...singleFeature} />
+          ))}
+        </CustomAutofitGrid>
+      </DesktopView>
     </Container>
   );
 }
+
+const MobileView = styled.div`
+  display: none;
+
+  ${media('<=tablet')} {
+    display: block;
+  }
+`;
+
+const DesktopView = styled.div`
+  display: block;
+
+  ${media('<=tablet')} {
+    display: none;
+  }
+`;
+
+const CustomSwiper = styled(Swiper)`
+  width: 100%;
+  height: 100%;
+
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;
 
 const CustomAutofitGrid = styled(AutofitGrid)`
   --autofit-grid-item-size: 30rem;

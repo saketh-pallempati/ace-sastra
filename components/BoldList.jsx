@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { media } from 'utils/media';
 
 const BoldList = () => {
-  const [selectedItem, setSelectedItem] = useState('Collaboration');
+  const [selectedItem, setSelectedItem] = useState('Innovation');
 
   const handleItemClick = (item) => {
     setSelectedItem(item);
@@ -12,19 +13,18 @@ const BoldList = () => {
     <Gallery>
       <StyledParagraph data-item="Principles">Principles</StyledParagraph>
       <StyledNav>
-        <ul>
+        <MenuContainer>
           {['Innovation', 'Excellence', 'Collaboration', 'Education', 'Community'].map((item) => (
-            <li key={item}>
-              <MenuItem
-                data-item={item}
-                onClick={() => handleItemClick(item)}
-                isSelected={selectedItem === item}
-              >
-                {item}
-              </MenuItem>
-            </li>
+            <MenuItem
+              key={item}
+              data-item={item}
+              onClick={() => handleItemClick(item)}
+              isSelected={selectedItem === item}
+            >
+              {item}
+            </MenuItem>
           ))}
-        </ul>
+        </MenuContainer>
       </StyledNav>
       <TextSection isVisible={!!selectedItem}>
         {selectedItem === 'Innovation' && <StyledBlockquote>We believe in fostering a culture of innovation by encouraging creative thinking, problem-solving, and the exploration of new ideas in the field of computing.</StyledBlockquote>}
@@ -39,7 +39,6 @@ const BoldList = () => {
 
 const Gallery = styled.div`
   text-align: center;
-  padding: 20px;
 `;
 
 const StyledParagraph = styled.p`
@@ -49,47 +48,37 @@ const StyledParagraph = styled.p`
   font-weight: 600;
   margin-bottom: 20px;
 
-  @media (max-width: 768px) {
+  ${media('<tablet')} {
     font-size: 48px;
   }
 
-  @media (max-width: 480px) {
+  ${media('<phone')} {
     font-size: 32px;
   }
 `;
 
 const StyledNav = styled.nav`
   padding: 16px;
+`;
 
-  ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 0;
-    cursor: pointer;
+const MenuContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  cursor: pointer;
 
-    li {
-      margin: 20px;
+  ${media('<tablet')} {
+    div {
+      margin: 15px;
     }
   }
 
-  @media (max-width: 768px) {
-    ul {
-      li {
-        margin: 15px;
-      }
-    }
-  }
+  ${media('<phone')} {
+    flex-direction: column;
+    align-items: center;
 
-  @media (max-width: 480px) {
-    ul {
-      flex-direction: column;
-      align-items: center;
-
-      li {
-        margin: 10px;
-      }
+    div {
+      margin: 10px;
     }
   }
 `;
@@ -105,6 +94,7 @@ const MenuItem = styled.div`
   padding: 1rem 2rem;
   cursor: pointer;
   overflow: hidden;
+  margin: 20px;
 
   &:hover {
     color: rgb(var(--primary));
@@ -143,11 +133,11 @@ const StyledBlockquote = styled.blockquote`
   transform: translateY(-20px);
   animation: fadeInSlideDown 1s forwards;
 
-  @media (max-width: 768px) {
+  ${media('<tablet')} {
     font-size: 20px;
   }
 
-  @media (max-width: 480px) {
+  ${media('<phone')} {
     font-size: 16px;
   }
 

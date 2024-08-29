@@ -26,7 +26,7 @@ const SwiperCards = () => {
           grabCursor={true}
           centeredSlides={true}
           loop={true}
-          slidesPerView={3}
+          slidesPerView={2}
           spaceBetween={20}
           coverflowEffect={{
             rotate: 0,

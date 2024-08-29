@@ -11,9 +11,9 @@ import React, { PropsWithChildren } from 'react';
 import Footer from 'components/Footer';
 import { GlobalStyle } from 'components/GlobalStyles';
 import Navbar from 'components/Navbar';
+import NavigationDrawer from 'components/NavigationDrawer';
 import WaveCta from 'components/WaveCta';
 import { NavItems } from 'types';
-import NavigationDrawer from 'components/NavigationDrawer';
 
 const navItems: NavItems = [
   { title: 'Clusters', href: '/clusters' },

@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
-
-import { A11y, Autoplay, EffectCreative, Navigation } from 'swiper';
+import { A11y, Autoplay, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Container from 'components/Container';
 import { media } from 'utils/media';
@@ -69,7 +68,7 @@ export default function Testimonials() {
     <div>
       <TestimonialsWrapper>
         <Swiper
-          modules={[Navigation, Autoplay, A11y, EffectCreative]}
+          modules={[Navigation, Autoplay, A11y]}
           slidesPerView={1}
           autoplay={{ delay: 5000 }}
           centeredSlides

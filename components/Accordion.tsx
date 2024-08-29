@@ -44,7 +44,6 @@ const Title = styled.h3`
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
 `;
 
 const TitleWrapper = styled.div`
@@ -74,7 +73,7 @@ const AccordionWrapper = styled.div`
   cursor: pointer;
   border-radius: 0.6rem;
   transition: opacity 0.2s;
-
+  
   ${media('<=desktop')} {
     width: 100%;
   }

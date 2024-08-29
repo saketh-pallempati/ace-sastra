@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from 'react';
 import NextImage from 'next/image';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import VanillaTilt from 'vanilla-tilt';
+import { media } from 'utils/media';
 
 interface BasicCardProps {
   title: string;
@@ -27,18 +28,20 @@ export default function BasicCard({ title, description, imageUrl }: BasicCardPro
   }
 
   useEffect(() => {
-    if (cardRef.current) {
-      VanillaTilt.init(cardRef.current, {
+    const currentCardRef = cardRef.current;
+
+    if (currentCardRef) {
+      VanillaTilt.init(currentCardRef, {
         max: 10,
         speed: 1000,
         glare: false,
       });
-      cardRef.current.addEventListener('mousemove', mouseMoveEvent);
+      currentCardRef.addEventListener('mousemove', mouseMoveEvent);
     }
     return () => {
-      if (cardRef.current) {
-        cardRef.current.vanillaTilt.destroy();
-        cardRef.current.removeEventListener('mousemove', mouseMoveEvent);
+      if (currentCardRef) {
+        currentCardRef.vanillaTilt.destroy();
+        currentCardRef.removeEventListener('mousemove', mouseMoveEvent);
       }
     };
   }, []);
@@ -55,7 +58,7 @@ export default function BasicCard({ title, description, imageUrl }: BasicCardPro
 const Card = styled.div`
   display: flex;
   padding: 2.5rem;
-  background: var(--cardBackground);
+  background: rgb(var(--cardBackground));
   box-shadow: var(--shadow-lg);
   flex-direction: column;
   justify-content: center;
@@ -68,18 +71,20 @@ const Card = styled.div`
   transition: transform 0.2s;
   position: relative;
   overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: var(--y, 50%);
-    left: var(--x, 50%);
-    width: 200%;
-    height: 200%;
-    transform: translate(-50%, -50%);
-    background: var(--cardShine); 
-    pointer-events: none;
-    transition: opacity 0.2s;
+ 
+  ${media('>=tablet')} {
+    &::before {
+      content: '';
+      position: absolute;
+      top: var(--y, 50%);
+      left: var(--x, 50%);
+      width: 200%;
+      height: 200%;
+      transform: translate(-50%, -50%);
+      background: var(--cardShine); 
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
   }
 
   & > *:not(:first-child) {
