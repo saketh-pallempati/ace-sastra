@@ -48,7 +48,7 @@ export default function BasicCard({ title, description, imageUrl }: BasicCardPro
 
   return (
     <Card ref={cardRef}>
-      <NextImage src={imageUrl} width={128} height={128} alt={title} />
+      <StyledNextImage src={imageUrl} width={128} height={128} alt={title} />
       <Title>{title}</Title>
       <Description>{description}</Description>
     </Card>
@@ -71,7 +71,7 @@ const Card = styled.div`
   transition: transform 0.2s;
   position: relative;
   overflow: hidden;
- 
+
   ${media('>=tablet')} {
     &::before {
       content: '';
@@ -87,6 +87,10 @@ const Card = styled.div`
     }
   }
 
+  ${media('<tablet')} {
+    font-size: 1.2rem;
+  }
+
   & > *:not(:first-child) {
     margin-top: 1rem;
   }
@@ -98,4 +102,11 @@ const Title = styled.div`
 
 const Description = styled.div`
   opacity: 0.6;
+`;
+
+const StyledNextImage = styled(NextImage)`
+  ${media('<tablet')} {
+    width: 64px;
+    height: 64px;
+  }
 `;

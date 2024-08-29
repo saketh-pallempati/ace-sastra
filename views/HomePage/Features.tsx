@@ -111,7 +111,8 @@ const DesktopView = styled.div`
 const CustomSwiper = styled(Swiper)`
   width: 100%;
   height: 100%;
-
+  overflow: clip;
+  padding: 0 15%;
   .swiper-slide {
     display: flex;
     justify-content: center;
