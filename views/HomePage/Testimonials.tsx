@@ -8,7 +8,7 @@ import { media } from 'utils/media';
 
 const TESTIMONIALS = [
   {
-    name: 'CodeRush ‘24 Coding Contest',
+    name: 'CodeRush ‘24 Contest',
     content: `CodeRush ‘24, a coding contest organized in partnership with AZAC, engaged students in rigorous coding challenges across multiple rounds. With 450 registrations for the online round and 65 participants in the final offline round, CodeRush ‘24 provided a platform for students to showcase their coding skills and problem-solving abilities, fostering a spirit of competition and camaraderie within the student community.`,
     author: {
       date: '24 March, 2024 (Round - 1), 28 March, 2024 (Final Round)',
@@ -35,7 +35,7 @@ const TESTIMONIALS = [
     imageURL: '/Events/NZ.jpg',
   },
   {
-    name: 'Quality Control Using MiniTab',
+    name: 'Quality Control MiniTab',
     content: `Dr. B. Thamodharan and Dr. A.L. Sriram led a workshop on Quality Control using MiniTab tools, aimed at empowering MCA 2nd-year students with practical strategies for organizational effectiveness. With 116 enthusiastic participants, the workshop focused on real-world applications of quality management techniques, equipping students with essential skills for their professional journey.`,
     author: {
       date: '6 March, 2024',
@@ -106,8 +106,8 @@ export default function Testimonials() {
 const ImageContainer = styled.div`
   position: relative;
   width: 70%;
-  aspect-ratio: 16 / 9; /* Maintain 4:3 aspect ratio */
-  margin: 0 auto; /* Center the container */
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
   overflow: hidden;
   
   &:hover .overlay {
@@ -144,7 +144,6 @@ const Overlay = styled.div`
   color: white;
   opacity: 0;
   transition: opacity 0.3s ease;
-  overflow: scroll;
 
   ${media('<=desktop')} {
     padding: 1rem;
