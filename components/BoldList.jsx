@@ -1,9 +1,33 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { media } from 'utils/media';
 
 const BoldList = () => {
   const [selectedItem, setSelectedItem] = useState('Innovation');
+  const [isVisible, setIsVisible] = useState(false);
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (menuRef.current) {
+      observer.observe(menuRef.current);
+    }
+
+    return () => {
+      if (menuRef.current) {
+        observer.unobserve(menuRef.current);
+      }
+    };
+  }, []);
 
   const handleItemClick = (item) => {
     setSelectedItem(item);
@@ -13,13 +37,15 @@ const BoldList = () => {
     <Gallery>
       <StyledParagraph data-item="Principles">Principles</StyledParagraph>
       <StyledNav>
-        <MenuContainer>
-          {['Innovation', 'Excellence', 'Collaboration', 'Education', 'Community'].map((item) => (
+        <MenuContainer ref={menuRef}>
+          {['Innovation', 'Excellence', 'Collaboration', 'Education', 'Community'].map((item, index) => (
             <MenuItem
               key={item}
               data-item={item}
               onClick={() => handleItemClick(item)}
               isSelected={selectedItem === item}
+              isVisible={isVisible}
+              index={index}
             >
               {item}
             </MenuItem>
@@ -95,6 +121,17 @@ const MenuItem = styled.div`
   cursor: pointer;
   overflow: hidden;
   margin: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+
+  ${({ isVisible, index }) =>
+    isVisible &&
+    `
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: ${index * 0.2}s;
+  `}
 
   &:hover {
     color: rgb(var(--primary));
@@ -110,7 +147,6 @@ const MenuItem = styled.div`
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(255, 255, 255, 0.1);
       z-index: -1;
     }
   `}

@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import { ScrollPositionEffectProps, useScrollPosition } from 'hooks/useScrollPosition';
 import { NavItems, SingleNavItem } from 'types';
 import { media } from 'utils/media';
-import Button from './Button';
 import Container from './Container';
 import Drawer from './Drawer';
 import { HamburgerIcon } from './HamburgerIcon';
@@ -89,16 +88,29 @@ export default function Navbar({ items }: NavbarProps) {
 
 function NavItem({ href, title, outlined }: SingleNavItem) {
 
-
-
   return (
     <NavItemWrapper outlined={outlined}>
       <NextLink href={href} passHref>
-        <a>{title}</a>
+        <NavText>{title}</NavText>
       </NextLink>
     </NavItemWrapper>
   );
 }
+const NavText = styled.a`
+  --padding-bottom: 0.1em;
+  --primary-color: rgb(var(--primary));
+
+  padding-bottom: var(--padding-bottom);
+  background: linear-gradient(90deg, var(--primary-color) 50%, #000 0) calc(100% - var(--progress, 0%)) / 200% 100%,
+    linear-gradient(var(--primary-color) 0 0) 0% 100% / var(--progress, 0%) var(--padding-bottom) no-repeat;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  transition: background-size 0.5s ease-out;
+
+  &:hover {
+    --progress: 100%;
+  }
+`
 
 const NavItemList = styled.div`
   display: flex;
@@ -136,7 +148,7 @@ const NavItemWrapper = styled.li<Partial<SingleNavItem>>`
     color: ${(p) => (p.outlined ? 'rgb(var(--textSecondary))' : 'rgb(var(--text), 0.75)')};
     letter-spacing: 0.025em;
     text-decoration: none;
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 1.5rem 0.3rem 1.5rem;
     font-weight: 700;
   }
   &:not(:last-child) {
