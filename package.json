@@ -29,7 +29,7 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.11.0",
     "@fec/remark-a11y-emoji": "^3.1.0",
-    "@next/bundle-analyzer": "^13.3.1",
+    "@next/bundle-analyzer": "^14.2.14",
     "@tinacms/cli": "^0.60.0",
     "@types/nodemailer": "^6.4.15",
     "@types/react": "^17.0.20",
